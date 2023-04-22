@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import sboRoutes from "./routes/sboRoutes.js";
+import compression from "compression";
 import cors from "cors";
 
 import dotenv from "dotenv";
@@ -27,6 +28,7 @@ const connect = () => {
     });
 };
 
+app.use(compression());
 app.use("/api/user", userRoutes);
 app.use("/api/sbo", sboRoutes);
 app.use("/api/auth", authRoutes);
