@@ -10,7 +10,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "http://sbo.onrender.com",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };

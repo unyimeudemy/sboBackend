@@ -5,15 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon run index.js",
-    "build": "brunch build"
+    "start": "nodemon run index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
-    "brunch": "^4.0.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dateformat": "^5.0.3",
