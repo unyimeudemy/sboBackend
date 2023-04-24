@@ -54,7 +54,6 @@ export const signUp = async (req, res, next) => {
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-
     // check if user has provided email and password
     if (!email || !password) {
       return res.status(403).json("please input email and password");
@@ -62,6 +61,7 @@ export const login = async (req, res, next) => {
 
     //check if email and password are valid
     const user = await User.findOne({ email }).select("+password");
+
     if (!user) {
       return res.status(404).json({
         data: "email or password not correct",
@@ -70,6 +70,7 @@ export const login = async (req, res, next) => {
     const passwordCheck = await bcrypt
       .compare(req.body.password, user.password)
       .then((res) => {
+        console.log(res);
         return res;
       });
 

@@ -42,7 +42,7 @@ export const fillSboVisitor = async (req, res, next) => {
 
 export const getAllMySBO = async (req, res, next) => {
   try {
-    const currentUserID = req.user._id.toJSON();
+    const currentUserID = req.user.staffID;
     const mySBOs = await SboForm.find({ staffID: currentUserID });
 
     res.status(200).json({
@@ -97,7 +97,6 @@ export const getAllSBO = async (req, res, next) => {
       });
       next();
     } else {
-   
       const allSBOs = await SboForm.find(req.query);
 
       res.status(200).json({
