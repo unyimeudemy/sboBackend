@@ -31,7 +31,7 @@ const connect = () => {
 };
 
 // app.use(express.static("/public/index.html")); // relative path of client-side code
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join("/public/index.html"));
 });
 
