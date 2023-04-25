@@ -29,9 +29,9 @@ const connect = () => {
     });
 };
 
-app.use(express.static("public")); // relative path of client-side code
-app.get("*", function (req, res) {
-  res.sendFile("index.html", { root: __dirname });
+// app.use(express.static("public")); // relative path of client-side code
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.use(compression());
