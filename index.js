@@ -29,9 +29,10 @@ const connect = () => {
     });
 };
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../public", "index.html"));
-// });
+app.use(express.static("public")); // relative path of client-side code
+app.get("*", function (req, res) {
+  res.sendFile("index.html", { root: __dirname });
+});
 
 app.use(compression());
 app.use("/api/user", userRoutes);
