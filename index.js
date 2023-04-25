@@ -5,6 +5,7 @@ import authRoutes from "./routes/authRoutes.js";
 import sboRoutes from "./routes/sboRoutes.js";
 import compression from "compression";
 import cors from "cors";
+import path from "path";
 
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
@@ -30,8 +31,8 @@ const connect = () => {
 };
 
 // app.use(express.static("public")); // relative path of client-side code
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.use(compression());
