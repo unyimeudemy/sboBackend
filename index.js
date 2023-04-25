@@ -31,9 +31,9 @@ const connect = () => {
 };
 
 // app.use(express.static("/public/index.html")); // relative path of client-side code
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join("index.html"));
+// });
 
 app.use(compression());
 app.use("/api/user", userRoutes);
