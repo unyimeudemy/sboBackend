@@ -20,10 +20,6 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
-
 const connect = () => {
   mongoose
     .connect(process.env.DB)
@@ -33,6 +29,9 @@ const connect = () => {
     });
 };
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public", "index.html"));
+});
 app.use(compression());
 app.use("/api/user", userRoutes);
 app.use("/api/sbo", sboRoutes);
